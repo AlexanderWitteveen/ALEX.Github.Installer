@@ -1,1 +1,3 @@
-# ALEX.Github.Installer
+# Introduction
+
+This action builds an installer.

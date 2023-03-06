@@ -1,0 +1,30 @@
+# action.yml
+name: 'Build Installer'
+description: 'Build an installer'
+inputs:
+  script:
+    description: 'Script of the installer'
+    required: true
+    default: 'pwsh'
+  name:
+    description: 'Name of the installer'
+    required: true
+    default: 'Installer'
+  rootfolder:
+    description: 'Rootfolder for install'
+    required: true
+  targetfolder:
+    description: 'target folder for install'
+    required: true
+  sourcefolder:
+    description: 'Path of the source folder'
+    required: true
+  install:
+    description: 'Path of the install script'
+    required: false
+outputs:
+  filename:
+    description: 'The name of the installer'
+runs:
+  using: 'docker'
+  image: 'dockerfile'

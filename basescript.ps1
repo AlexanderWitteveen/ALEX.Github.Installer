@@ -1,6 +1,6 @@
 if (-not (New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))
 {
-    Start-Process powershell.exe -ArgumentList ("-file", ('"' + "$PSCommandPath" + '"'), "-noexit", "-ExecutionPolicy", "bypass") -Verb RunAs -Wait
+    Start-Process pwsh.exe -ArgumentList ("-file", ('"' + "$PSCommandPath" + '"'), "-noexit", "-ExecutionPolicy", "bypass") -Verb RunAs -Wait
     break
 }
 

@@ -2,9 +2,9 @@
 
 path=$(pwd)
 
-echo "$INPUT_SCRIPT"
-echo "$INPUT_NAME"
-echo "$path"
+#echo "$INPUT_SCRIPT"
+#echo "$INPUT_NAME"
+#echo "$path"
 
 if [ "$INPUT_SCRIPT" != "pwsh" ] && [ "$INPUT_SCRIPT" != "bash" ] ; then
     echo "Script does not match [pwsh, bash]"
@@ -15,8 +15,6 @@ cd $INPUT_SOURCEFOLDER
 zip -r $path/folder.zip *
 cd $path
 folder=$( base64 -w 0 folder.zip )
-
-echo $folder
 
 if [ "$INPUT_SCRIPT" == "pwsh" ] ; then
     filename="$INPUT_NAME.ps1"
@@ -45,10 +43,6 @@ elif [ "$INPUT_SCRIPT" == "bash" ] ; then
     echo "install=\"$INPUT_INSTALL\"" >> $scriptpath
     cat /basescript.sh >> $scriptpath
 fi
-
-ls -las
-
-cat $scriptpath
 
 echo "filename=$filename" >> $GITHUB_OUTPUT
 
